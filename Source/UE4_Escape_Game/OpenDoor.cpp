@@ -32,14 +32,18 @@ void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens))
+	{
+		OpenDoor(DeltaTime);
+	}
+
+
+}
+
+void UOpenDoor::OpenDoor(float DeltaTime)
+{
 	CurrentYaw = FMath::Lerp(CurrentYaw, TargetYaw, DeltaTime * 0.3f);
 	FRotator DoorRotation = GetOwner()->GetActorRotation();
 	DoorRotation.Yaw = CurrentYaw;
 	GetOwner()->SetActorRotation(DoorRotation);
-
-	// float CurrentYaw = GetOwner()->GetActorRotation().Yaw;
-	// FRotator OpenDoor(0.f,TargetYaw, 0.f);
-	// OpenDoor.Yaw = FMath::Lerp(CurrentYaw, TargetYaw, 0.01f);
-	// GetOwner()->SetActorRotation(OpenDoor);
 }
-
