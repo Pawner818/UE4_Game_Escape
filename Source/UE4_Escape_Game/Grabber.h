@@ -48,4 +48,5 @@ private:
 
 	// Get Players Position In World.
 	FVector GetPlayersWorldPos() const;
+
 };

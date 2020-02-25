@@ -88,7 +88,6 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	}
 }
 
-
 FHitResult UGrabber::GetFirstPhysicsBodyInReach() const
 {
 	FHitResult Hit;
