@@ -28,8 +28,10 @@ private:
 
 	float Reach = 100.f;
 
-	UPhysicsHandleComponent* PhysicsHandle = nullptr;
-	UInputComponent* InputComponent = nullptr;
+	UPROPERTY()
+		UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	UPROPERTY()
+		UInputComponent* InputComponent = nullptr;
 
 
 	void Grab();
@@ -40,4 +42,10 @@ private:
 
 	// Return the first Actor within reach with physics body.
 	FHitResult GetFirstPhysicsBodyInReach() const;
+
+	// Return The Line Trace End.
+	FVector GetPlayersReach() const;
+
+	// Get Players Position In World.
+	FVector GetPlayersWorldPos() const;
 };
